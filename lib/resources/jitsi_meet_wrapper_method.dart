@@ -33,11 +33,8 @@ class JitsiMeetMethod {
 
 
 
-      String name;
       if (username.isEmpty) {
-        name = _authMethods.user.displayName!;
       } else {
-        name = username;
       }
 
       // Define meetings options here
@@ -119,8 +116,8 @@ class JitsiMeetMethod {
 
       // _firestoreMethods.addToMeetingHistory(roomName);
       // await JitsiMeet.joinMeeting(options);
+    // ignore: empty_catches
     } catch (error) {
-      print("error: $error");
     }
   }
 }

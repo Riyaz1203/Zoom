@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_types_as_parameter_names
+
 import 'package:flutter/material.dart';
 import 'package:zoom_clone/resources/auth_methods.dart';
 import 'package:zoom_clone/resources/jitsi_meet_wrapper_method.dart';
@@ -13,6 +15,7 @@ class VideoCallScreen extends StatefulWidget {
 }
 
 class _VideoCallScreenState extends State<VideoCallScreen> {
+  // ignore: unused_field
   final AuthMethods _authMethods = AuthMethods();
 
   late TextEditingController meetingIdController = TextEditingController();

@@ -13,6 +13,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
+  // ignore: override_on_non_overriding_member
   int _page = 0;
 
   onPagedChanged(int page) {
@@ -27,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const Text('Settings'),
   ];
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

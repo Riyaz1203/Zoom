@@ -1,13 +1,11 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
-import 'feature_flag.dart';
 import 'jitsi_meet_wrapper_platform_interface.dart';
-import 'jitsi_meeting_listener.dart';
-import 'jitsi_meeting_options.dart';
-import 'jitsi_meeting_response.dart';
 
 const MethodChannel _methodChannel = MethodChannel('jitsi_meet_wrapper');
 const EventChannel _eventChannel = EventChannel('jitsi_meet_wrapper_events');
@@ -17,7 +15,7 @@ class MethodChannelJitsiMeetWrapper extends JitsiMeetWrapperPlatformInterface {
   bool _eventChannelIsInitialized = false;
   JitsiMeetingListener? _listener;
 
-  @override
+  // ignore: override_on_non_overriding_member
   Future<JitsiMeetingResponse> JoinMeeting({
     required JitsiMeetingOptions options,
     JitsiMeetingListener? listener,
@@ -27,7 +25,7 @@ class MethodChannelJitsiMeetWrapper extends JitsiMeetWrapperPlatformInterface {
       _initialize();
     }
 
-    Map<String, dynamic> _options = {
+    Map<String, dynamic> options0 = {
       'roomName': options.roomNameOrUrl.trim(),
       'serverUrl': options.serverUrl?.trim(),
       'subject': options.subject?.trim(),
@@ -43,7 +41,7 @@ class MethodChannelJitsiMeetWrapper extends JitsiMeetWrapperPlatformInterface {
     };
 
     return await _methodChannel
-        .invokeMethod<String>('joinMeeting', _options)
+        .invokeMethod<String>('joinMeeting', options0)
         .then((message) {
       return JitsiMeetingResponse(isSuccess: true, message: message);
     }).catchError((error) {
@@ -57,11 +55,11 @@ class MethodChannelJitsiMeetWrapper extends JitsiMeetWrapperPlatformInterface {
 
   @override
   Future<JitsiMeetingResponse> setAudioMuted(bool isMuted) async {
-    Map<String, dynamic> _options = {
+    Map<String, dynamic> options = {
       'isMuted': isMuted,
     };
     return await _methodChannel
-        .invokeMethod<String>('setAudioMuted', _options)
+        .invokeMethod<String>('setAudioMuted', options)
         .then((message) {
       return JitsiMeetingResponse(isSuccess: true, message: message);
     }).catchError((error) {

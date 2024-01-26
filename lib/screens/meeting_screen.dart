@@ -1,8 +1,6 @@
 import 'dart:math';
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:jitsi_meet_wrapper/jitsi_meet_wrapper.dart';
 import 'package:zoom_clone/resources/auth_methods.dart';
 import 'package:zoom_clone/resources/jitsi_meet_wrapper_method.dart';
 import 'dart:core';
@@ -16,6 +14,7 @@ class MeetingScreen extends StatefulWidget {
   State<MeetingScreen> createState() => _MeetingScreenState();
 }
 class _MeetingScreenState extends State<MeetingScreen> {
+  // ignore: unused_field
   final AuthMethods _authMethods = AuthMethods();
   final JitsiMeetMethod _jitsiMeetMethods = JitsiMeetMethod();
 
